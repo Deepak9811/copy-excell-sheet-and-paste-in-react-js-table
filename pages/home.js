@@ -8,14 +8,13 @@ class App extends React.Component {
         this.state = {
             data: [],
             showErro: true,
-            // colorchnge: false
+            colorchnge: false
         };
     }
 
 
     handlePaste(e) {
 
-        // console.log("first check color ", this.state.colorchnge)
 
         if (e.target.tagName && e.target.tagName.match(/(input|textarea)/i)) {
             return;
@@ -28,29 +27,6 @@ class App extends React.Component {
         const result = rows.map(row => {
             const cells = row.split("\t");
             const chl = cells[1]
-            // console.log(cells)
-            // for (let i = chl.length - 1; i >= 0; i--) {
-            //     let clls = cells.splice(i, 1);
-            //     console.log("clls ", clls)
-            // }
-            // if (chl.length < 25) {
-
-            //     const fls = false
-
-            //     // eslint-disable-next-line react/no-direct-mutation-state
-            //     this.state.colorchnge = fls;
-            //     console.log("blue ", this.state.colorchnge)
-            //     console.log("chl.length ", chl.length)
-
-            // } else {
-            //     console.log("nothing ", chl.length)
-            //     const tru = true
-            //     // eslint-disable-next-line react/no-direct-mutation-state
-            //     this.state.colorchnge = tru;
-
-            //     console.log("red ", this.state.colorchnge)
-
-            // }
 
             return {
                 ProductID: cells[0],
@@ -67,24 +43,17 @@ class App extends React.Component {
             showErro: false
         });
 
-        // this.checkEmptyGrid(result)
-
-
-
-
-
-        // console.log(this.state.data)
     };
 
     checkEmptyGrid(item) {
 
         if (item.UnitPrice.length > 15) {
             this.state.colorchnge = true
-            console.log("product id :-  ", item.UnitPrice.length, " ", this.state.colorchnge)
+            console.log("product id :-  ", item.UnitPrice," , ", item.UnitPrice.length, " ", this.state.colorchnge)
 
         } else {
             this.state.colorchnge = false
-            console.log("greater then 15", item.UnitPrice.length, " ", this.state.colorchnge)
+            console.log("greater then 15", item.UnitPrice," , ", item.UnitPrice.length, " ", this.state.colorchnge)
         }
 
     }
